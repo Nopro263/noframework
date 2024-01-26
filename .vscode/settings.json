@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "linked_list.c": "cpp",
+        "linked_list.h": "c"
+    }
+}
