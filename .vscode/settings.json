@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "linked_list.c": "cpp",
-        "linked_list.h": "c"
+        "linked_list.h": "c",
+        "allocator.h": "c"
     }
 }

@@ -4,13 +4,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "allocator.h"
+
 struct _I_ll_
 {
     void* data;
     size_t size;
     size_t uses;
     size_t key;
+    type_t type;
     struct _I_ll_* next;
+    struct _I_ll_* prev;
 };
 
 struct _I_ll_* _I_getElement(size_t key);
