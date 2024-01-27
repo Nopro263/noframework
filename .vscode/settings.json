@@ -3,6 +3,8 @@
         "linked_list.c": "c",
         "linked_list.h": "c",
         "allocator.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "other.h": "c",
+        "numbers.c": "c"
     }
 }

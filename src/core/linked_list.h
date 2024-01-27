@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../other.h"
+
 #include "allocator.h"
 
 struct _I_ll_
@@ -13,6 +15,7 @@ struct _I_ll_
     size_t uses;
     size_t key;
     type_t type;
+    func caller;
     struct _I_ll_* next;
     struct _I_ll_* prev;
 };

@@ -16,6 +16,7 @@ typedef enum {
 
 typedef enum {
     ERROR_NOT_A_STRING,
+    ERROR_NOT_A_LIST,
 } error_t;
 
 typedef struct {
@@ -26,7 +27,7 @@ typedef struct {
 
 #include "linked_list.h"
 
-ptr_t a_alloc(size_t size, type_t type);
+ptr_t a_alloc(size_t size, type_t type, func caller);
 void a_realloc(ptr_t p, size_t newsize);
 void a_free(ptr_t p);
 
