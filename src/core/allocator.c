@@ -71,3 +71,16 @@ void a_free(ptr_t p) {
         return;
     }
 }
+
+return_t new_return_value(ptr_t value) {
+    return_t t;
+    t.hasValue = true;
+    t.value = value;
+    return t;
+}
+return_t new_return_error(error_t error) {
+    return_t t;
+    t.hasValue = false;
+    t.error = error;
+    return t;
+}

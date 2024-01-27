@@ -2,6 +2,7 @@
 #define INCLUDE_CORE_ALLOCATOR
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef size_t ptr_t;
 typedef enum {
@@ -13,11 +14,24 @@ typedef enum {
     TYPE_OTHER,
 } type_t;
 
+typedef enum {
+    ERROR_NOT_A_STRING,
+} error_t;
+
+typedef struct {
+    bool hasValue;
+    ptr_t value;
+    error_t error;
+} return_t;
+
 #include "linked_list.h"
 
 ptr_t a_alloc(size_t size, type_t type);
 void a_realloc(ptr_t p, size_t newsize);
 void a_free(ptr_t p);
+
+return_t new_return_value(ptr_t value);
+return_t new_return_error(error_t error);
 
 #include "allocator.c"
 #endif
