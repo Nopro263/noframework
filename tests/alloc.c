@@ -6,17 +6,17 @@
 #include <stdio.h>
 
 return_t nfmain() {
-    return_t t;
-    t = new_string_fromChars("Hello World");
-    ptr_t str = $(t);
+    ptr_t str = $(new_string_fromChars("Hello World"));
 
     char c;
+    printPtr(str);
+    printf("\n");
     foreach(c, str) {
         printf("%c", c);
     }
+    printf("\n");
 
-    t = new_number_int(3);
-    ptr_t v = $(t);
+    ptr_t v = $(new_number_int(3));
     printPtr(v);
     endV(v);
 }
@@ -30,7 +30,7 @@ int main() {
         } else {
             printf("\n\nENDED with value: ");
             __I_printPtr(t.value);
-            //a_free(t.value);
+            a_free(t.value);
             printf("\n\n");
         }
     } else {

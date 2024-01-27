@@ -120,31 +120,32 @@ void a_freeAll(func f) {
 return_t __I_printPtr(ptr_t p) {
     switch (a_getType(p))
     {
-    case TYPE_FLOAT:
-        printf("%Lf", *(long double*)a_getPtr(p));
-        break;
-    case TYPE_NUMBER:
-        printf("%lld", *(long long*)a_getPtr(p));
-        break;
-    case TYPE_STR: {
-        char c;
-        foreach(p, c) {
-            putchar(c);
+        case TYPE_FLOAT:
+            printf("%Lf", *(long double*)a_getPtr(p));
+            break;
+        case TYPE_NUMBER:
+            printf("%lld", *(long long*)a_getPtr(p));
+            break;
+        case TYPE_STR: {
+            char c;
+            foreach(c, p) {
+                printf("%c",c);
+            }
+            break;
         }
-        break;
-    }
-    case TYPE_NONE:
-        puts("None");
-        break;
-    case TYPE_OTHER:
-        char c;
-        foreach(p, c) {
-            printf("%x", c);
-        }
-        break;
-    
-    default:
-        break;
+        case TYPE_NONE:
+            puts("None");
+            break;
+        case TYPE_OTHER:
+            char c;
+            foreach(p, c) {
+                printf("%x", c);
+            }
+            break;
+        
+        default:
+            printf("UNKNOWN TYPE\n");
+            break;
     }
 }
 
