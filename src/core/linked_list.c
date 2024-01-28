@@ -55,6 +55,9 @@ void __a_lRemove(size_t i) {
     if(current->prev) {
         prev = current->prev;
         prev->next = current->next;
+        if(current->next) {
+            current->next->prev = current->prev;
+        }
         free(current);
     } else {
         prev = __a_l_first;

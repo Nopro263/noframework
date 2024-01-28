@@ -13,6 +13,8 @@ return_t _new_string_fromSizedChars(char* base, size_t size, func caller) {
 }
 
 return_t _string_append(ptr_t s1, ptr_t s2, func caller) {
+    if(a_getType(s1) != TYPE_STR) return new_return_error(ERROR_NOT_A_STRING);
+    if(a_getType(s2) != TYPE_STR) return new_return_error(ERROR_NOT_A_STRING);
     size_t new_size = a_getSize(s1) + a_getSize(s2);
     ptr_t new_string = a_alloc(new_size, TYPE_STR, caller);
     memcpy(a_getPtr(new_string), a_getPtr(s1), a_getSize(s1));
