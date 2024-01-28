@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include "error.h"
 
 typedef size_t ptr_t;
 typedef enum {
@@ -15,8 +16,8 @@ typedef enum {
 } type_t;
 
 typedef enum {
-    ERROR_NOT_A_STRING,
-    ERROR_NOT_A_LIST,
+    ERROR_NOT_A_STRING = 0,
+    ERROR_NOT_A_LIST = 1,
 } error_t;
 
 typedef struct {

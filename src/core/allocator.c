@@ -162,6 +162,10 @@ void printPtr(ptr_t p) {
     __I_printPtr(p); // Just to use foreach
 }
 
+void printError(error_t error) {
+    printf("%s\n", error_lookup[error]);
+}
+
 return_t new_return_value(ptr_t value) {
     return_t t;
     t.hasValue = true;
