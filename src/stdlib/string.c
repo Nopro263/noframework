@@ -13,7 +13,11 @@ return_t _new_string_fromSizedChars(char* base, size_t size, func caller) {
 }
 
 return_t _string_append(ptr_t s1, ptr_t s2, func caller) {
-
+    size_t new_size = a_getSize(s1) + a_getSize(s2);
+    ptr_t new_string = a_alloc(new_size, TYPE_STR, caller);
+    memcpy(a_getPtr(new_string), a_getPtr(s1), a_getSize(s1));
+    memcpy(a_getPtr(new_string)+a_getSize(s1), a_getPtr(s2), a_getSize(s2));
+    return new_return_value(new_string);
 }
 
 return_t _string_reverse(ptr_t s, func caller) {

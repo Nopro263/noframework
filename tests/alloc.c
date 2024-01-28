@@ -6,18 +6,16 @@
 #include <stdio.h>
 
 return_t nfmain() {
-    ptr_t str = $(new_string_fromChars("Hello World"));
-
-    char c;
+    ptr_t str = $(new_string_fromChars("Hello "));
     printPtr(str);
-    printf("\n");
-    foreach(c, str) {
-        printf("%c", c);
-    }
-    printf("\n");
+
+    ptr_t str2 = $(new_string_fromChars("World"));
+    printPtr(str2);
+
+    ptr_t str3 = $(string_append(str, str2));
+    printPtr(str3);
 
     ptr_t v = $(new_number_int(3));
-    printPtr(v);
     endV(v);
 }
 
@@ -38,6 +36,7 @@ int main() {
     }
     if(__a_l_first) {
         perror("Error: unfreed memory\n\n");
-        asm("int3");
+        struct _I_ll_* x = __a_l_first;
+        printf("%p", x);
     }
 }

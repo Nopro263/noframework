@@ -35,6 +35,13 @@ size_t a_getSize(ptr_t p) {
     }
 }
 
+void _a_setCaller(ptr_t p, func caller) {
+    struct _I_ll_* pt = __a_lGet(p);
+    if(pt) {
+        pt->caller = caller;
+    }
+}
+
 void* a_getPtr(ptr_t p) {
     struct _I_ll_* pt = __a_lGet(p);
     if(pt) {
@@ -118,6 +125,7 @@ void a_freeAll(func f) {
 }
 
 return_t __I_printPtr(ptr_t p) {
+    printf("%lu: ", p);
     switch (a_getType(p))
     {
         case TYPE_FLOAT:
@@ -147,6 +155,7 @@ return_t __I_printPtr(ptr_t p) {
             printf("UNKNOWN TYPE\n");
             break;
     }
+    printf("\n");
 }
 
 void printPtr(ptr_t p) {
