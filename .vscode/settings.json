@@ -5,6 +5,7 @@
         "allocator.h": "c",
         "string.h": "c",
         "other.h": "c",
-        "numbers.c": "c"
+        "numbers.c": "c",
+        "numbers.h": "c"
     }
 }

@@ -14,4 +14,8 @@ typedef const void* func;
 
 __thread return_t __global_return_temp;
 
+#define str(A) new_string_fromChars(A)
+#define int(A) new_number_int(A)
+#define float(A) new_number_float(A)
+
 #endif
