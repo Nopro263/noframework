@@ -17,7 +17,7 @@ return_t nfmain() {
     ptr_t str3 = $(string_append(str, str2));
     printPtr(str3);
 
-    printf("%p", __FUNCTION__);
+    //printf("%p", __FUNCTION__);
 
     endV(v);
 }
