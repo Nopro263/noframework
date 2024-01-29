@@ -16,9 +16,12 @@ struct _I_ll_
     size_t key;
     type_t type;
     func caller;
+    func onFree;
     struct _I_ll_* next;
     struct _I_ll_* prev;
 };
+
+typedef void _onptr_type(struct _I_ll_*);
 
 struct _I_ll_* _I_getElement(size_t key);
 size_t _I_addElement(struct _I_ll_ e);

@@ -7,6 +7,19 @@ ptr_t a_alloc(size_t size, type_t type, func caller) {
     pt.uses = 1;
     pt.type = type;
     pt.caller = caller;
+    pt.onFree = NULL;
+    ptr_t i = __a_lAdd(pt);
+    return i;
+}
+
+ptr_t a_allocEx(size_t size, type_t type, func caller, _onptr_type onFree) {
+    struct _I_ll_ pt;
+    pt.data = malloc(size);
+    pt.size = size;
+    pt.uses = 1;
+    pt.type = type;
+    pt.caller = caller;
+    pt.onFree = onFree;
     ptr_t i = __a_lAdd(pt);
     return i;
 }
