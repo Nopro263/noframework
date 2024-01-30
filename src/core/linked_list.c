@@ -46,7 +46,7 @@ size_t __a_lAdd(struct _I_ll_ p) {
         p.prev = last;
         memcpy(last->next, &p, sizeof(struct _I_ll_));
     }
-    return len;
+    return p.key; //mb fix for prev commit?
 }
 void __a_lRemove(size_t i) {
     struct _I_ll_* current = __a_lGet(i);
