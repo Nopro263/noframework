@@ -8,6 +8,9 @@ return_t _new_string_fromChars(char* base, func caller) {
 
 return_t _new_string_fromSizedChars(char* base, size_t size, func caller) {
     ptr_t p = a_alloc(size, TYPE_STR, caller);
+    if(!a_getPtr(p)) {
+        asm("int3");
+    }
     memcpy(a_getPtr(p), base, size);
     return new_return_value(p);
 }

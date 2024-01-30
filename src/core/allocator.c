@@ -135,8 +135,13 @@ void a_free(ptr_t p) {
         return;
     }
 }
-void a_freeAll(func f) {
+void a_freeAll(func f, ptr_t p) {
     struct _I_ll_* next = __a_l_first;
+    if(p != -1) {
+        if(__a_lGet(p)->caller == f) {
+            a_acquire(p);
+        }
+    }
     while(next) {
         if(next->caller == f) {
             a_free(next->key);

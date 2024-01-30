@@ -1,5 +1,6 @@
 #include "../src/core/allocator.h"
 #include "../src/stdlib/string.h"
+#include "../src/stdlib/cmd.h"
 #include "../src/stdlib/numbers.h"
 #include "../src/other.h"
 
@@ -18,6 +19,9 @@ return_t nfmain() {
     printPtr(str3);
 
     //printf("%p", __FUNCTION__);
+
+    ptr_t x = $(cmd_input());
+    printPtr(x);
 
     endV(v);
 }
