@@ -2,10 +2,11 @@
 
 ptr_t a_alloc(size_t size, type_t type, func caller) {
     struct _I_ll_ pt;
-    if(size) {
+    if(size != 0) {
         pt.data = malloc(size);
     } else {
         pt.data = NULL;
+        printf("PTR sized %lu HAS NO PTR\n", size);
     }
     pt.size = size;
     pt.uses = 1;
