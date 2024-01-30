@@ -2,7 +2,11 @@
 
 ptr_t a_alloc(size_t size, type_t type, func caller) {
     struct _I_ll_ pt;
-    pt.data = malloc(size);
+    if(size) {
+        pt.data = malloc(size);
+    } else {
+        pt.data = NULL;
+    }
     pt.size = size;
     pt.uses = 1;
     pt.type = type;
@@ -14,7 +18,11 @@ ptr_t a_alloc(size_t size, type_t type, func caller) {
 
 ptr_t a_allocEx(size_t size, type_t type, func caller, _onptr_type onFree) {
     struct _I_ll_ pt;
-    pt.data = malloc(size);
+    if(size) {
+        pt.data = malloc(size);
+    } else {
+        pt.data = NULL;
+    }
     pt.size = size;
     pt.uses = 1;
     pt.type = type;

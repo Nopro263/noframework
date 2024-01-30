@@ -61,6 +61,9 @@ void __a_lRemove(size_t i) {
         if(current->onFree) {
             ((_onptr_type*)current->onFree)(current);
         }
+        if(current->data) {
+            free(current->data);
+        }
         free(current);
     } else {
         prev = __a_l_first;
@@ -70,6 +73,9 @@ void __a_lRemove(size_t i) {
         }
         if(prev->onFree) {
             ((_onptr_type*)prev->onFree)(prev);
+        }
+        if(prev->data) {
+            free(prev->data);
         }
         free(prev);
     }

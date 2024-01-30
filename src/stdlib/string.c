@@ -22,6 +22,14 @@ return_t _string_append(ptr_t s1, ptr_t s2, func caller) {
     return new_return_value(new_string);
 }
 
-return_t _string_reverse(ptr_t s, func caller) {
+return_t string_appendIP(ptr_t s1, ptr_t s2) {
+    if(a_getType(s1) != TYPE_STR) return new_return_error(ERROR_NOT_A_STRING);
+    if(a_getType(s2) != TYPE_STR) return new_return_error(ERROR_NOT_A_STRING);
+    size_t new_size = a_getSize(s1) + a_getSize(s2);
+    size_t offset = a_getSize(s1);
 
+    a_realloc(s1, new_size);
+
+    memcpy(a_getPtr(s1)+offset, a_getPtr(s2), a_getSize(s2));
+    return new_return_value(-1);
 }
